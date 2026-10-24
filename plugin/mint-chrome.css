@@ -1,0 +1,68 @@
+/* Layout and reversible host integration; works with any Obsidian theme. */
+body.zm-hide-ribbon:not(.is-mobile) .workspace-ribbon.mod-primary { display: none; }
+body.zm-hide-view-header .workspace-split.mod-root .view-header { display: none; }
+/* Zen single-toolbar: the content's top 8px reveal the complete 34px window-control bar.
+   It overlays the card; neither its state nor its animation changes editor geometry. */
+:root body.is-frameless.zm-autohide-window-controls { --frame-right-space: 0px; }
+:root body.is-frameless.zm-autohide-window-controls .titlebar {
+  inset: 0 8px auto var(--zm-chrome-left, 0px);
+  width: auto;
+  height: 8px;
+  min-height: 0;
+  opacity: 0;
+  overflow: clip;
+  pointer-events: none;
+  background-color: var(--background-secondary);
+  background-image: var(--zm-frame);
+  background-size: 100vw 100vh;
+  background-position: calc(-1 * var(--zm-chrome-left, 0px)) 0;
+  border-radius: 0 0 7px 7px;
+  transition: height 150ms ease-in-out 200ms, opacity 150ms ease-in-out 200ms;
+  -webkit-app-region: drag;
+  z-index: 100;
+}
+:root body.is-frameless.zm-autohide-window-controls.zm-window-buttons-visible .titlebar,
+:root body.is-frameless.zm-autohide-window-controls .titlebar:focus-within {
+  height: 34px;
+  opacity: 1;
+  pointer-events: auto;
+}
+:root body.is-frameless.zm-autohide-window-controls .titlebar-inner { height: 34px; }
+:root body.is-frameless.zm-autohide-window-controls .titlebar-text,
+:root body.is-frameless.zm-autohide-window-controls .titlebar-button-container.mod-left { display: none; }
+:root body.is-frameless.zm-autohide-window-controls .titlebar-button-container.mod-right {
+  height: 34px;
+  background: transparent;
+  pointer-events: none;
+}
+:root body.is-frameless.zm-autohide-window-controls .titlebar-button {
+  height: 34px;
+  pointer-events: none;
+  -webkit-app-region: no-drag;
+}
+:root body.is-frameless.zm-autohide-window-controls.zm-window-controls-interactive :is(.titlebar-button-container.mod-right, .titlebar-button) { pointer-events: auto; }
+:root body.is-frameless.zm-autohide-window-controls.is-fullscreen .titlebar { height: 0; opacity: 0; pointer-events: none; }
+body.zen-mint-sidebar .workspace-leaf-content[data-type="empty"] .empty-state { display: none; }
+@media (prefers-reduced-motion: reduce) {
+  :root body.is-frameless.zm-autohide-window-controls .titlebar { transition: none; }
+}
+body.zen-mint-sidebar .mod-left-split .workspace-tabs:has(.workspace-tab-header.is-active[data-type="zen-mint-tabs"]) > .workspace-tab-header-container {
+  display: none;
+}
+.zm-toolbar { display: flex; align-items: center; gap: 3px; height: 38px; -webkit-app-region: drag; }
+.zm-toolbar-spacer { flex: 1; }
+button.zm-icon-button {
+  display: inline-flex; align-items: center; justify-content: center;
+  flex: none; width: 28px; height: 28px; padding: 5px; border: 0;
+  border-radius: 6px; background: transparent; box-shadow: none;
+  color: var(--icon-color); cursor: pointer; -webkit-app-region: no-drag;
+}
+.zm-icon-button svg { width: 18px; height: 18px; stroke-width: 1.8; }
+button.zm-icon-button:hover { background: var(--background-modifier-hover); }
+button.zm-icon-button:disabled { opacity: .35; cursor: default; }
+.zm-location { display: flex; align-items: center; min-width: 0; height: 40px; background: var(--background-modifier-hover); border-radius: 8px; margin-bottom: 6px; }
+button.zm-current-note { display: block; flex: 1; min-width: 0; height: 100%; padding: 0 10px; text-align: start; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; border: 0; box-shadow: none; background: transparent; color: inherit; font-size: 15px; }
+.zm-location > .zm-icon-button { margin-inline-end: 5px; }
+.zm-current-note:focus-visible, .zm-icon-button:focus-visible { outline: 2px solid var(--interactive-accent); outline-offset: -2px; }
+button.zm-sidebar-reveal { display: none; position: fixed; left: 9px; top: 9px; z-index: 30; background: var(--background-secondary); box-shadow: 0 1px 4px rgb(0 0 0 / 10%); }
+body:has(.workspace-split.mod-left-split.is-sidedock-collapsed) button.zm-sidebar-reveal { display: inline-flex; }

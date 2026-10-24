@@ -1,0 +1,10 @@
+{
+  "id": "zen-mint-sidebar",
+  "name": "Zen Mint Sidebar",
+  "version": "0.2.2",
+  "minAppVersion": "1.13.0",
+  "description": "Zen 风格侧栏：固定入口、文件夹、竖向标签和 Spaces。搭配 Zen Mint 主题。",
+  "author": "user-A100; based on Atlas Sidebar by Fabian Urbanek and Zen UI by Merlin Kraemer",
+  "authorUrl": "https://github.com/user-A100",
+  "isDesktopOnly": true
+}

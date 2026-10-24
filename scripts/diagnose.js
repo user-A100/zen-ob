@@ -1,0 +1,1 @@
+(async()=>({version:window.appVersion, globals:Object.keys(window).filter(k=>/version/i.test(k)),manifest:app.plugins.manifests,enabled:[...app.plugins.enabledPlugins],functions:Object.getOwnPropertyNames(Object.getPrototypeOf(app.plugins)),loadResult:await app.plugins.loadPlugin('atlas-sidebar')}))()

@@ -1,0 +1,55 @@
+/* MPL-2.0. DOM adaptation of Zen Browser zen-gradient-generator.css,
+   f2b18c4f6179a3918c0d92f2a7406322cda4ad12; see THIRD-PARTY-NOTICES.md. */
+.zm-theme-picker {
+  --picker-width: 380px;
+  position: fixed; z-index: 1000; width: min(var(--picker-width), calc(100vw - 16px));
+  padding: 10px; border: 1px solid rgb(0 0 0 / .12); border-radius: 14px;
+  background: #f8f8f8; color: #373737; box-shadow: 0 12px 40px rgb(0 0 0 / .22),0 0 1px rgb(0 0 0 / .25);
+  max-height: calc(100vh - 16px); overflow-y: auto; overscroll-behavior: contain;
+  user-select: none; -webkit-app-region: no-drag; font-family: var(--font-interface);
+}
+.theme-dark .zm-theme-picker { background: #272729; color: #e8e8e8; border-color: rgb(255 255 255 / .14); }
+.zm-theme-board {
+  position: relative; width: 100%; aspect-ratio: 1; border-radius: 10px; overflow: hidden;
+  background-color: rgb(0 0 0 / .035); background-image: radial-gradient(rgb(0 0 0 / .11) 1px,transparent 0);
+  background-position: -23px -23px; background-size: 6px 6px; touch-action: none;
+}
+.theme-dark .zm-theme-board { background-color: rgb(255 255 255 / .025); background-image: radial-gradient(rgb(255 255 255 / .08) 1px,transparent 0); }
+.zm-theme-scheme,.zm-theme-actions { position: absolute; left: 50%; transform: translateX(-50%); display: flex; gap: 5px; z-index: 4; }
+.zm-theme-scheme { top: 15px; }
+.zm-theme-actions { bottom: 10px; }
+.zm-theme-picker button.zm-theme-button { appearance: none; display: flex; align-items: center; justify-content: center; width: 30px; height: 30px; min-width: 30px; padding: 0; margin: 0; border: 0; border-radius: 6px; background: transparent; box-shadow: none; color: inherit; cursor: pointer; }
+.zm-theme-button svg { width: 18px; height: 18px; stroke-width: 1.6; }
+.zm-theme-picker button.zm-theme-button:hover,.zm-theme-picker button.zm-theme-button[aria-pressed=true] { background: rgb(0 0 0 / .085); }
+.theme-dark .zm-theme-picker button.zm-theme-button:hover,.theme-dark .zm-theme-picker button.zm-theme-button[aria-pressed=true] { background: rgb(255 255 255 / .10); }
+.zm-theme-picker button:disabled { opacity: .35; cursor: default; }
+.zm-theme-dots { position: absolute; inset: 0; pointer-events: none; }
+.zm-theme-picker button.zm-theme-dot { position: absolute; display: block; padding: 0; margin: 0; width: 22px; height: 22px; border: 3px solid white; border-radius: 50%; transform: translate(-50%,-50%); box-shadow: 0 0 0 1px rgb(0 0 0 / .13); pointer-events: none; }
+.zm-theme-picker button.zm-theme-dot.primary { width: 38px; height: 38px; border-width: 6px; z-index: 5; pointer-events: auto; cursor: grab; }
+.zm-theme-picker button.zm-theme-dot.primary:active { cursor: grabbing; }
+.zm-theme-hint { position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); white-space: nowrap; font-size: 13px; font-weight: 600; pointer-events: none; }
+.zm-theme-hint[hidden] { display: none; }
+.zm-theme-presets { display: flex; align-items: center; gap: 4px; margin-top: 10px; }
+.zm-theme-swatches { display: flex; flex: 1; justify-content: space-around; gap: 5px; align-items: center; min-width: 0; }
+.zm-theme-picker button.zm-theme-swatch { appearance: none; flex: none; width: 26px; height: 26px; border: 0; padding: 0; border-radius: 50%; box-shadow: 0 0 1px 1px rgb(0 0 0 / .12); transition: transform .1s; cursor: pointer; }
+.zm-theme-picker button.zm-theme-swatch.is-gradient { background: radial-gradient(circle at 0% 0%,var(--c1),transparent 100%),radial-gradient(circle at 100% 0%,var(--c2),transparent 100%),linear-gradient(to top,var(--c3) 0%,transparent 60%); }
+.zm-theme-picker button.zm-theme-swatch:hover { transform: scale(1.08); }
+.zm-theme-controls { display: flex; align-items: center; gap: 24px; padding: 10px 10px 0; }
+.zm-theme-strength { position: relative; flex: 1; min-width: 0; height: 50px; }
+.zm-theme-strength::before { content: ''; position: absolute; top: 50%; height: 18px; left: 0; right: 0; border-radius: 99px; transform: translateY(-50%); background: rgb(0 0 0 / .08); }
+.theme-dark .zm-theme-strength::before { background: rgb(255 255 255 / .08); }
+.zm-theme-strength svg { position: absolute; width: 100%; height: 100%; pointer-events: none; overflow: visible; }
+.zm-theme-strength path { stroke: currentColor; stroke-width: 4px; opacity: .65; }
+.zm-theme-strength input[type=range] { position: absolute; inset: 0; margin: 0; width: 100%; height: 100%; appearance: none; background: transparent; cursor: pointer; }
+.zm-theme-strength input[type=range]::-webkit-slider-runnable-track { height: 18px; background: transparent; }
+.zm-theme-strength input[type=range]::-webkit-slider-thumb { appearance: none; width: 7px; height: var(--zm-thumb-height,24px); margin-top: calc((18px - var(--zm-thumb-height,24px)) / 2); border: 0; border-radius: 10px; background: currentColor; box-shadow: 0 0 0 3px #f8f8f8; }
+.theme-dark .zm-theme-strength input[type=range]::-webkit-slider-thumb { box-shadow: 0 0 0 3px #272729; }
+.zm-theme-texture { position: relative; flex: none; width: 80px; height: 80px; touch-action: none; cursor: pointer; outline-offset: 3px; }
+.zm-theme-texture::after { content: ''; position: absolute; inset: 20%; border: 1px solid rgb(0 0 0 / .13); border-radius: 50%; background: linear-gradient(-45deg,transparent -10%,rgb(0 0 0 / .12) 110%); pointer-events: none; }
+.zm-theme-texture::before { content: ''; position: absolute; inset: 20%; border-radius: 50%; opacity: var(--zm-texture,0); background-image: radial-gradient(currentColor .6px,transparent .8px); background-size: 3px 3px; pointer-events: none; }
+.zm-theme-texture-tick { position: absolute; width: 4px; height: 4px; border-radius: 50%; background: currentColor; opacity: .20; transform: translate(-50%,-50%); pointer-events: none; }
+.zm-theme-texture-tick.active { opacity: .6; }
+.zm-theme-texture-handle { position: absolute; left: 50%; top: 50%; width: 6px; height: 12px; background: currentColor; border-radius: 2px; pointer-events: none; }
+.zm-theme-picker button:focus-visible,.zm-theme-picker input:focus-visible,.zm-theme-texture:focus-visible { outline: 2px solid #658bce; outline-offset: 2px; }
+@media(prefers-reduced-motion:reduce) { .zm-theme-picker * { transition: none !important; } }
+@media(max-width:410px) { .zm-theme-swatches { gap: 3px; } .zm-theme-picker button.zm-theme-swatch { width: 22px; height: 22px; } }

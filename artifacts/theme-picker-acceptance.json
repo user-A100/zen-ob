@@ -1,0 +1,46 @@
+{
+  "host": "Obsidian 1.14.5",
+  "results": [
+    {
+      "name": "Original entry: sidebar right-click opens a 380px non-modal dot-board",
+      "pass": true
+    },
+    {
+      "name": "Up to three linked dots; empty board click creates first color",
+      "pass": true
+    },
+    {
+      "name": "Dragging the primary updates color and live gradient; stays in circular bounds",
+      "pass": true
+    },
+    {
+      "name": "Harmony button cycles relationships without randomizing the primary",
+      "pass": true
+    },
+    {
+      "name": "Five original preset pages have 8/8/8/8/9 swatches",
+      "pass": true
+    },
+    {
+      "name": "Wave slider changes color intensity; texture dial uses sixteen steps",
+      "pass": true
+    },
+    {
+      "name": "Global Light/Dark/Auto work without Style Settings; no save/cancel form",
+      "pass": true
+    },
+    {
+      "name": "Escape closes and saves the current space, not a global palette",
+      "pass": true
+    },
+    {
+      "name": "Switching spaces restores each gradient; inactive-space edits preview and return",
+      "pass": true
+    },
+    {
+      "name": "Reload restores themes and cleans old popup/style nodes",
+      "pass": true
+    }
+  ],
+  "errors": []
+}

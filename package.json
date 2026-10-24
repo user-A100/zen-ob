@@ -1,0 +1,14 @@
+{
+  "name": "zen-mint-obsidian",
+  "version": "0.2.2",
+  "private": true,
+  "scripts": {
+    "build": "npm --prefix plugin run build",
+    "test": "node --test scripts/theme-model.test.cjs && node scripts/theme-picker-acceptance.cjs && node scripts/tabs-window-acceptance.cjs && node scripts/window-chrome-acceptance.cjs",
+    "capture": "node scripts/capture.cjs",
+    "test:sidebar": "node scripts/acceptance.cjs"
+  },
+  "devDependencies": {
+    "playwright": "1.62.1"
+  }
+}

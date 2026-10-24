@@ -1,0 +1,180 @@
+/* Zen Mint 0.1.0 — reference: user's mint/pink Zen Browser screenshot.
+   Obsidian app theme; no Zen Browser source code is included. */
+/* @settings
+name: Zen Mint
+id: zen-mint
+settings:
+  - id: zm-mint
+    title: 侧栏薄荷绿
+    type: variable-color
+    format: hex
+    default: '#b6e3c3'
+  - id: zm-rose
+    title: 窗口淡粉色
+    type: variable-color
+    format: hex
+    default: '#d9bfd2'
+  - id: zm-paper
+    title: 内容区奶油色
+    type: variable-color
+    format: hex
+    default: '#f2efe3'
+  - id: zm-row-height
+    title: 标签行高
+    type: variable-number-slider
+    default: 36
+    min: 32
+    max: 52
+    step: 1
+    format: px
+*/
+body {
+  --zm-mint: #b6e3c3;
+  --zm-rose: #d9bfd2;
+  --zm-paper: #f2efe3;
+  --zm-row-height: 36px;
+  --zm-ink: #304c39;
+  --zm-muted: #63826c;
+  --zm-selected: #eff9ef;
+  --zm-hover: rgb(55 108 65 / 10%);
+  --zm-frame: linear-gradient(180deg, var(--zm-mint) 0%, #bfdcc4 36%, #cdd7ca 66%, var(--zm-rose) 100%);
+  --font-interface-theme: "Segoe UI", "Microsoft YaHei UI", sans-serif;
+  --font-text-theme: "Segoe UI", "Microsoft YaHei", sans-serif;
+  --radius-s: 6px;
+  --radius-m: 9px;
+  --radius-l: 12px;
+  --input-radius: 7px;
+  --tab-radius: 8px;
+  --nav-item-size: 15px;
+  --nav-item-weight: 400;
+  --file-line-width: 860px;
+}
+.theme-light {
+  --background-primary: var(--zm-paper);
+  --background-primary-alt: #eceadd;
+  --background-secondary: #c7ddca;
+  --background-secondary-alt: #bbd5bf;
+  --background-modifier-hover: var(--zm-hover);
+  --background-modifier-border: rgb(48 76 57 / 14%);
+  --background-modifier-border-hover: rgb(48 76 57 / 24%);
+  --background-modifier-border-focus: #688c70;
+  --background-modifier-form-field: rgb(255 255 248 / 55%);
+  --text-normal: #545650;
+  --text-muted: #6a7168;
+  --text-faint: #869285;
+  --text-accent: #4d7859;
+  --text-accent-hover: #315e40;
+  --interactive-accent: #527d5c;
+  --interactive-accent-hover: #426c4d;
+  --text-on-accent: #f4faf1;
+  --icon-color: #62816b;
+  --icon-color-hover: #304c39;
+  --nav-item-color: var(--zm-ink);
+  --nav-item-color-hover: var(--zm-ink);
+  --nav-item-color-active: var(--zm-ink);
+  --nav-item-background-active: var(--zm-selected);
+  --titlebar-background: #c3daca;
+  --titlebar-background-focused: #c3daca;
+  --text-selection: rgb(105 164 116 / 25%);
+}
+.theme-dark {
+  --zm-mint: #253e34;
+  --zm-rose: #443441;
+  --zm-paper: #252923;
+  --zm-ink: #d6e4d4;
+  --zm-muted: #9cb2a0;
+  --zm-selected: #405648;
+  --zm-hover: rgb(207 237 209 / 9%);
+  --zm-frame: linear-gradient(145deg, var(--zm-mint), #303e33 60%, var(--zm-rose));
+  --background-primary: var(--zm-paper);
+  --background-secondary: #303e33;
+  --background-secondary-alt: #29382e;
+  --background-modifier-hover: var(--zm-hover);
+  --text-normal: #d2d8ca;
+  --text-muted: #a8b4a5;
+  --text-faint: #859683;
+  --text-accent: #a0c0a4;
+  --text-accent-hover: #c4ddc7;
+  --nav-item-color: var(--zm-ink);
+  --interactive-accent: #86ae8a;
+  --icon-color: #abc1ac;
+}
+/* The frame is one continuous surface. No per-panel gradients or wallpaper dependency. */
+.app-container { background: var(--zm-frame); }
+.workspace { background: transparent; }
+.workspace-ribbon, .workspace-split.mod-left-split, .workspace-split.mod-right-split,
+.mod-left-split .workspace-tabs, .mod-left-split .workspace-leaf,
+.mod-left-split .workspace-leaf-content, .mod-left-split .view-content,
+.mod-left-split .workspace-tab-header-container, .mod-right-split .workspace-leaf-content,
+.workspace-sidedock-vault-profile { background: transparent; }
+.workspace-split.mod-left-split { border-right: 0; padding: 0; }
+.workspace-split.mod-right-split { border-left: 0; }
+.workspace-split.mod-root {
+  background: var(--background-primary);
+  margin: 8px 8px 8px 0;
+  height: calc(100% - 16px);
+  min-height: 0;
+  border-radius: 7px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgb(44 55 38 / 16%), 0 0 1px rgb(44 55 38 / 20%);
+}
+.workspace-split.mod-root .workspace-tabs,
+.workspace-split.mod-root .workspace-leaf,
+.workspace-split.mod-root .workspace-leaf-content { background: var(--background-primary); }
+.zen-mint-sidebar .workspace-split.mod-root .workspace-leaf-content[data-type="empty"] {
+  background: linear-gradient(145deg, color-mix(in srgb, var(--zm-mint) 32%, var(--background-primary)),
+    var(--background-primary) 52%, color-mix(in srgb, var(--zm-rose) 30%, var(--background-primary)));
+}
+.zen-mint-sidebar .workspace-leaf-content[data-type="empty"] > .view-content { background: transparent; }
+.workspace-leaf-resize-handle { border-color: transparent; }
+.workspace-leaf-resize-handle:hover { background: rgb(75 120 86 / 20%); }
+.workspace-tab-header-container { border: 0; background: transparent; }
+.workspace-tab-header { border-radius: 7px; }
+.workspace-tab-header.is-active { background: var(--zm-selected); box-shadow: 0 1px 2px rgb(35 55 38 / 12%); }
+.workspace-tab-header::before, .workspace-tab-header::after { display: none; }
+.view-header { background: transparent; border: 0; }
+.status-bar { background: var(--background-primary); border: 0; }
+.nav-file-title, .nav-folder-title { border-radius: 7px; padding-block: 7px; }
+.modal, .prompt { background: var(--background-primary); border-radius: 14px; }
+button:focus-visible, [role=button]:focus-visible { outline: 2px solid var(--interactive-accent); outline-offset: 2px; }
+/* Sidebar dimensions measured from the reference. Functional CSS stays in the plugin. */
+.zen-mint-sidebar .zen-tabs {
+  --zt-row-h: var(--zm-row-height);
+  --zt-row-gap: 4px;
+  --zt-radius: 8px;
+  --zt-hover: var(--zm-hover);
+  --zt-selected: var(--zm-selected);
+  --zt-selected-shadow: 0 1px 2px rgb(35 55 38 / 15%), 0 0 0 0.5px rgb(43 77 49 / 6%);
+  --zt-folder-hue: #20cd4c;
+  color: var(--zm-ink);
+}
+.zen-mint-sidebar .zen-tabs-scroller { padding: 2px 8px 20px; }
+.zen-mint-sidebar .zen-row { font-size: 15px; color: var(--zm-ink); gap: 10px; padding-inline: 10px 5px; }
+.zen-mint-sidebar .zen-row.is-active { color: #222a23; }
+.theme-dark.zen-mint-sidebar .zen-row.is-active { color: var(--zm-ink); }
+.zen-mint-sidebar .zen-row-icon { color: var(--zm-muted); }
+.zen-mint-sidebar .zen-row-icon svg { width: 18px; height: 18px; stroke-width: 1.8; }
+.zen-mint-sidebar .zen-row-title { mask-image: linear-gradient(to right, #000 calc(100% - 20px), transparent); text-overflow: clip; }
+.zen-mint-sidebar .zen-space-header { height: 40px; margin: 6px 0 4px; color: #587862; font-weight: 650; }
+.zen-mint-sidebar .zen-space-header-icon, .zen-mint-sidebar .zen-space-header-more { display: none; }
+.theme-dark.zen-mint-sidebar .zen-space-header { color: var(--zm-muted); }
+.zen-mint-sidebar .zen-folder-row { font-weight: 650; }
+.zen-mint-sidebar .zen-tabs-separator { height: 18px; margin: 3px 3px; }
+.zen-mint-sidebar .zen-tabs-clear-icon { display: none; }
+.zen-mint-sidebar .zen-tabs-new { color: var(--zm-muted); }
+.zen-mint-sidebar .zen-row.is-active > .zen-row-action { opacity: 0; }
+.zen-mint-sidebar .zen-row:hover > .zen-row-action,
+.zen-mint-sidebar .zen-row:focus-visible > .zen-row-action { opacity: 1; }
+.zen-mint-sidebar .zen-tabs-header { padding: 0 8px; background: transparent; box-shadow: none; }
+.zen-mint-sidebar .zm-toolbar { height: 38px; }
+.zen-mint-sidebar .zm-icon-button { color: var(--zm-muted); }
+.zen-mint-sidebar .zm-location { background: rgb(54 115 68 / 9%); color: var(--zm-ink); margin: 2px 0 6px; border-radius: 8px; }
+.zen-mint-sidebar .zm-location:hover { background: rgb(54 115 68 / 14%); }
+.zen-mint-sidebar .zen-space-switcher { justify-content: flex-start; padding: 7px 8px; background: transparent; border-top: 0; }
+.zen-mint-sidebar .zen-space-add { margin-inline-start: auto; }
+.zen-mint-sidebar .zen-space-button.is-active { background: transparent; box-shadow: none; }
+.zen-mint-sidebar .mod-left-split .workspace-tab-header-container { border: 0; }
+@media (prefers-reduced-motion: reduce) {
+  .zen-tabs *, .zen-folder-popup *, .zen-launcher-container * { transition: none !important; animation: none !important; }
+}
+@media (max-width: 700px) { .workspace-split.mod-root { margin: 4px; height: calc(100% - 8px); } }

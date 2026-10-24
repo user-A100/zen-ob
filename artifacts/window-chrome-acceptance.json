@@ -1,0 +1,82 @@
+{
+  "host": "Obsidian 1.14.5",
+  "results": [
+    {
+      "name": "Real native window and content card fill correctly without fixed viewport emulation",
+      "pass": true
+    },
+    {
+      "name": "Collapsed bar is 8px and hidden captions cannot receive pointer input",
+      "pass": true
+    },
+    {
+      "name": "Entire content top edge reveals 34px bar with original 200ms delay and 150ms transition",
+      "pass": true
+    },
+    {
+      "name": "Moving across the control bar holds it open; leaving collapses without moving content",
+      "pass": true
+    },
+    {
+      "name": "Owned popup and toolbar focus keep the expanded bar open until released",
+      "pass": true
+    },
+    {
+      "name": "Top-edge leave has bounded 1000ms fallback; blur releases immediately",
+      "pass": true
+    },
+    {
+      "name": "Native resizing and 80%/125% zoom retain all four frame edges",
+      "pass": true
+    },
+    {
+      "name": "Plugin unload restores native titlebar and removes all controller state",
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "final": {
+    "inner": [
+      1034,
+      806
+    ],
+    "bounds": {
+      "x": 306,
+      "y": 94,
+      "width": 1034,
+      "height": 806
+    },
+    "zoom": 1,
+    "app": {
+      "x": 0,
+      "y": 0,
+      "width": 1034,
+      "height": 806,
+      "top": 0,
+      "right": 1034,
+      "bottom": 806,
+      "left": 0
+    },
+    "root": {
+      "x": 200,
+      "y": 8,
+      "width": 826,
+      "height": 790,
+      "top": 8,
+      "right": 1026,
+      "bottom": 798,
+      "left": 200
+    },
+    "margin": {
+      "bottom": 8,
+      "right": 8
+    },
+    "bar": {
+      "height": 8,
+      "opacity": "0",
+      "delay": "0s",
+      "duration": "0s"
+    },
+    "interactive": false
+  }
+}

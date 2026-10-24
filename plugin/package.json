@@ -1,0 +1,24 @@
+{
+  "name": "zen-mint-sidebar",
+  "version": "0.2.2",
+  "description": "Zen 风格侧栏：固定入口、文件夹、竖向标签和 Spaces。搭配 Zen Mint 主题。",
+  "main": "main.js",
+  "scripts": {
+    "dev": "node esbuild.config.mjs",
+    "build": "tsc -noEmit -skipLibCheck && node esbuild.config.mjs production"
+  },
+  "keywords": [],
+  "author": "Fabian Urbanek",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "esbuild": "^0.21.4",
+    "obsidian": "1.14.4",
+    "tslib": "^2.6.2",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "@codemirror/state": "6.7.6",
+    "@codemirror/view": "6.43.13"
+  }
+}

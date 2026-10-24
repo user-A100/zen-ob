@@ -1,0 +1,50 @@
+{
+  "host": "Obsidian 1.14.5",
+  "results": [
+    {
+      "name": "Host 1.14.5; toolbar visible; one sidebar",
+      "pass": true
+    },
+    {
+      "name": "Click a vertical tab opens the real note",
+      "pass": true
+    },
+    {
+      "name": "File explorer stays reachable and can return to Zen tabs",
+      "pass": true
+    },
+    {
+      "name": "Collapse and reveal keep the sidebar reachable",
+      "pass": true
+    },
+    {
+      "name": "Context menu pins a tab; close keeps its entry; click restores it",
+      "pass": true
+    },
+    {
+      "name": "Folder expands and collapses using the row",
+      "pass": true
+    },
+    {
+      "name": "HTML drag reorders unpinned tabs",
+      "pass": true
+    },
+    {
+      "name": "New-tab launcher finds and opens an existing note",
+      "pass": true
+    },
+    {
+      "name": "Space switch changes the visible tab set",
+      "pass": true
+    },
+    {
+      "name": "Clear preserves pinned entries, other space, and note files",
+      "pass": true
+    },
+    {
+      "name": "Unload restores classes and new-tab command; preferences unchanged",
+      "pass": true
+    }
+  ],
+  "errors": []
+}

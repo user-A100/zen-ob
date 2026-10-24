@@ -1,0 +1,28 @@
+const {chromium}=require('playwright');
+const path=require('node:path');
+(async()=>{const browser=await chromium.connectOverCDP('http://127.0.0.1:9224');
+try {
+ const page=browser.contexts()[0].pages().find(p=>p.url().includes('index.html'));
+ if(path.resolve(await page.evaluate(()=>app.vault.adapter.basePath)).toLowerCase()!==path.resolve(__dirname,'../test-vault').toLowerCase()) throw Error('Not test-vault');
+ await page.evaluate(()=>electronWindow.webContents.disableDeviceEmulation());
+ await page.emulateMedia({reducedMotion:'reduce'});
+ await page.evaluate(async()=>{const p=app.plugins.plugins['zen-mint-sidebar'];await p.tabs.switchSpace('demo-home');const leaf=[...p.tabs.sync().leaves.values()].find(l=>l.getViewState().state?.file==='Release notes.md');if(leaf)await p.tabs.focus(leaf);});
+ await page.mouse.move(800,700);
+ const shot=name=>page.screenshot({path:'artifacts/'+name+'.png',timeout:15000,scale:'css',animations:'disabled'});
+ await shot('zen-mint-v1');
+ await page.locator('[data-row="pin:inbox"]').hover();
+ await shot('zen-mint-hover');
+ await page.locator('[data-row="folder:basics"]').click();
+ await page.mouse.move(800,700);
+ await shot('zen-mint-folder');
+ await page.locator('[data-row="folder:basics"]').click();
+ await page.locator('.zen-tabs-new').click();
+ await page.locator('.zen-launcher input').fill('配色');
+ await page.waitForSelector('.zen-launcher .suggestion-item');
+ await shot('zen-mint-launcher');
+ await page.keyboard.press('Escape');
+ await page.evaluate(()=>{document.body.classList.remove('theme-light');document.body.classList.add('theme-dark');});
+ await shot('zen-mint-dark');
+ await page.evaluate(()=>{document.body.classList.remove('theme-dark');document.body.classList.add('theme-light');});
+ console.log('Five real-renderer states captured without OS input.');
+}finally{const page=browser.contexts()[0].pages().find(p=>p.url().includes('index.html'));if(page)await page.emulateMedia({reducedMotion:null});await browser.close();}})().catch(e=>{console.error(e);process.exit(1)});

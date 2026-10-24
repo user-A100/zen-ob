@@ -1,0 +1,42 @@
+{
+  "host": "Obsidian 1.14.5",
+  "results": [
+    {
+      "name": "Window-control bar collapses to 8px and expands from the content top edge without a gap",
+      "pass": true
+    },
+    {
+      "name": "New tab and Escape create one blank leaf, without creating a Markdown file",
+      "pass": true
+    },
+    {
+      "name": "Repeated new-tab actions retain distinct empty tabs; Ctrl+T follows the same path",
+      "pass": true
+    },
+    {
+      "name": "New-tab search opens a file inside its own blank tab and permits the same note twice",
+      "pass": true
+    },
+    {
+      "name": "Location search switches tabs; Ctrl+Enter explicitly opens another copy",
+      "pass": true
+    },
+    {
+      "name": "Tab context menu opens another copy without modifying the note",
+      "pass": true
+    },
+    {
+      "name": "Disabling the launcher keeps Ctrl+T creating distinct blank tabs",
+      "pass": true
+    },
+    {
+      "name": "Unmatched query alone creates no file; explicit Create action creates a named Markdown file",
+      "pass": true
+    },
+    {
+      "name": "Blank tab survives plugin reload; uninstall restores window controls and original new-tab command",
+      "pass": true
+    }
+  ],
+  "errors": []
+}
